@@ -63,14 +63,11 @@ the base prefix** — use router `<Link>`/`to` and `import.meta.env.BASE_URL` fo
 `public/404.html` provides the SPA deep-link fallback on Pages. Pushing to `main` triggers
 `.github/workflows/deploy.yml`.
 
-### The "design" layer (one design, not six)
+### The "design" layer
 
-The README and earlier notes describe a switchable gallery of 6 designs. **The current code ships a
-single design**, `src/designs/guided-journey/`, which exports `{ Layout, Home }`.
-`src/design/DesignChrome.tsx` hardcodes that import and exposes `RootLayout` (chrome + `<Outlet/>`)
-and `DesignHome` (index route). There is no `DesignProvider` or `DesignSwitcher`. If you reintroduce
-multiple designs, each design folder should export the same `{ id, Layout, Home }` shape and
-`DesignChrome` would select among them.
+The app ships a single design, `src/designs/guided-journey/`, which exports `{ Layout, Home }`.
+`src/design/DesignChrome.tsx` imports it and exposes `RootLayout` (chrome + `<Outlet/>`) and
+`DesignHome` (index route), which `router.tsx` mounts. There is no design switcher or provider.
 
 ### UI conventions
 

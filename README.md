@@ -4,9 +4,6 @@ A friendly, ELI5, step-by-step guide to **Meeco Verifiable Credentials**, the **
 **SVX Wallet** and **SVX Verify**. Built as a freely-navigable SPA that doubles as a sequential
 getting-started path.
 
-> **Design gallery:** This build ships **6 designs at once**, switchable live via the floating
-> button (bottom-right). Try each, then pick one — the unused designs are deleted afterwards.
-
 ## Stack
 
 - **Bun** (package manager + runner) · **Vite** · **React 19** · **TypeScript**
@@ -30,8 +27,8 @@ src/
   content/steps.ts      # the 12-step getting-started backbone (order, routes, icons, terms)
   content/glossary.ts   # glossary term ids
   locales/{en,ja}/      # ALL copy lives here (titles, ELI5 body, sub-steps, term defs)
-  designs/<id>/         # one isolated folder per design, exports { id, Layout, Home }
-  design/               # DesignProvider (active design), floating DesignSwitcher, chrome
+  designs/guided-journey/ # the layout + landing experience (exports { Layout, Home })
+  design/               # DesignChrome: wires the design into the router (RootLayout, DesignHome)
   components/           # shared building blocks (StepPage, StepNav, Term, PrevNext, …)
   lib/                  # progress (localStorage) + theme providers
   router.tsx            # routes, derived from content/steps.ts
