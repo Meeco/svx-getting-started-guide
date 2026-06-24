@@ -54,7 +54,7 @@
   },
   "steps": {
     "tenant": {
-      "title": "テナントを作成する",
+      "title": "テナントをセットアップする",
       "blurb": "ポータル上のあなた専用の管理スペース。",
       "body": "テナントとは、Meeco ポータル上のあなた専用の区切られた領域です。ここにクレデンシャルは保管されません — 純粋に管理用で、アカウントの管理と組織の作成のためのものです。これが最初に作るものです。",
       "steps": [
@@ -69,7 +69,7 @@
       ]
     },
     "organisation": {
-      "title": "組織を作成する",
+      "title": "組織をセットアップする",
       "blurb": "ウォレットへのアクセスを管理するチームの主体。",
       "body": "組織はテナントの中に存在します。テナントと同様にクレデンシャルは保管されませんが、テナントからデプロイするウォレットに誰がアクセスできるかを管理します。",
       "steps": [
@@ -95,7 +95,9 @@
         { "type": "note", "text": "通常は 5〜10 分ほどで完了します。" },
         { "type": "figure", "src": "portal/applications-view-offline.png", "alt": "OFFLINE のステータスバッジと、ウォレット URL・プラットフォーム URL・テナント ID・組織 ID・クライアント認証情報などのデプロイ情報を表示した View application の詳細ページ。", "caption": "View Wallet — デプロイ準備中は OFFLINE" },
         { "type": "step", "text": "ステータスが online になるまで、ページを更新しながら待ちます。online になればウォレットの準備完了で、デプロイ情報にウォレット URL が表示されます。" },
-        { "type": "figure", "src": "portal/applications-view-online.png", "alt": "ONLINE のステータスバッジを表示した View application の詳細ページ。ウォレットデプロイの準備が完了し、ウォレット URL とデプロイ情報が表示されている。", "caption": "View Wallet — ONLINE になりウォレットの準備完了" }
+        { "type": "figure", "src": "portal/applications-view-online.png", "alt": "ONLINE のステータスバッジを表示した View application の詳細ページ。ウォレットデプロイの準備が完了し、ウォレット URL とデプロイ情報が表示されている。", "caption": "View Wallet — ONLINE になりウォレットの準備完了" },
+        { "type": "step", "text": "ウォレット URL を開いて SVX ウォレットのダッシュボードに入ります — ここがクレデンシャルの発行・検証のハブです。" },
+        { "type": "figure", "src": "portal/applications-wallet-dashboard.png", "alt": "ウォレット URL から開いた SVX ウォレットのダッシュボード。サイドバー（Credentials・SVX Verify・Wallet・Devtools）と、作成済み・検証済み・保留中・失敗のセッション概要が表示されている。", "caption": "SVX ウォレットのダッシュボード — クレデンシャルの発行・検証の準備完了" }
       ]
     },
     "api-keys": {

@@ -54,7 +54,7 @@
   },
   "steps": {
     "tenant": {
-      "title": "Create a Tenant",
+      "title": "Set up a Tenant",
       "blurb": "Your own private admin space in the Portal.",
       "body": "A tenant is your own private, walled-off area in the Meeco Portal. No credentials live here — it's purely for admin: managing your account and creating organisations. It's the very first thing you create.",
       "steps": [
@@ -69,7 +69,7 @@
       ]
     },
     "organisation": {
-      "title": "Create an Organisation",
+      "title": "Set up an Organisation",
       "blurb": "The team identity that controls wallet access.",
       "body": "An organisation lives inside your tenant. Like the tenant, no credentials live here — but it controls who can access the wallets you deploy from within the tenant.",
       "steps": [
@@ -95,7 +95,9 @@
         { "type": "note", "text": "This usually only takes about 5–10 minutes." },
         { "type": "figure", "src": "portal/applications-view-offline.png", "alt": "The View application detail page showing an OFFLINE status badge alongside the deployment information — the Wallet URL, platform URL, tenant ID, organization ID and client credentials.", "caption": "View Wallet — status OFFLINE while the deployment spins up" },
         { "type": "step", "text": "Wait for the status to become online, refreshing the page to update it. Once online, your wallet is ready and its Wallet URL appears in the deployment information." },
-        { "type": "figure", "src": "portal/applications-view-online.png", "alt": "The View application detail page showing an ONLINE status badge, meaning the wallet deployment is ready, with its Wallet URL and deployment information.", "caption": "View Wallet — status ONLINE and the wallet is ready" }
+        { "type": "figure", "src": "portal/applications-view-online.png", "alt": "The View application detail page showing an ONLINE status badge, meaning the wallet deployment is ready, with its Wallet URL and deployment information.", "caption": "View Wallet — status ONLINE and the wallet is ready" },
+        { "type": "step", "text": "Open the Wallet URL to enter your SVX Wallet dashboard — your hub for issuing and verifying credentials." },
+        { "type": "figure", "src": "portal/applications-wallet-dashboard.png", "alt": "The SVX Wallet dashboard opened from the Wallet URL, with a sidebar (Credentials, SVX Verify, Wallet and Devtools) and an overview of sessions created, verified, pending and failed.", "caption": "Your SVX Wallet dashboard — ready to issue and verify credentials" }
       ]
     },
     "api-keys": {
