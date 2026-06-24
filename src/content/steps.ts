@@ -57,20 +57,20 @@ export const STEPS: Step[] = [
 
   // 2. Wallet setup — stand up the wallet before using it
   { id: "api-keys", route: "/wallet/admin/api-keys", group: "wallet-setup", order: 4, icon: KeyRound, terms: ["api-key", "api", "wallet"] },
-  { id: "admin-accounts", route: "/wallet/admin/accounts", group: "wallet-setup", order: 5, icon: ShieldCheck, terms: ["admin-account", "passkey", "wallet"] },
-  { id: "wallet-settings", route: "/wallet/admin/settings", group: "wallet-setup", order: 6, icon: Settings2, terms: ["wallet", "kms"] },
+  { id: "admin-accounts", route: "/wallet/admin/accounts", group: "wallet-setup", order: 5, icon: ShieldCheck, terms: ["admin-account", "passkey", "wallet", "svx-platform"] },
+  { id: "wallet-settings", route: "/wallet/admin/settings", group: "wallet-setup", order: 6, icon: Settings2, terms: ["wallet", "kms", "bridge"] },
 
   // 3. Issue credentials
   { id: "schemas", route: "/wallet/credentials/schemas", group: "issue", order: 7, icon: FileJson2, terms: ["schema", "verifiable-credential", "sd-jwt"] },
-  { id: "credential-templates", route: "/wallet/credentials/templates", group: "issue", order: 8, icon: FileBadge, terms: ["credential-template", "schema", "issuer"] },
-  { id: "issued-credentials", route: "/wallet/credentials/issued", group: "issue", order: 9, icon: BadgeCheck, terms: ["issued-credential", "api", "holder", "issuer"] },
+  { id: "credential-templates", route: "/wallet/credentials/templates", group: "issue", order: 8, icon: FileBadge, terms: ["credential-template", "schema", "issuer", "vct"] },
+  { id: "issued-credentials", route: "/wallet/credentials/issued", group: "issue", order: 9, icon: BadgeCheck, terms: ["issued-credential", "api", "holder", "issuer", "claim", "revocation"] },
 
   // 4. Verify credentials
   { id: "verification-templates", route: "/wallet/credentials/verification-templates", group: "verify", order: 10, icon: ClipboardList, terms: ["verification-template", "dcql", "verifier", "presentation-request"] },
-  { id: "verification-submissions", route: "/wallet/credentials/verification-submissions", group: "verify", order: 11, icon: Inbox, terms: ["presentation-response", "verifier", "holder"] },
+  { id: "verification-submissions", route: "/wallet/credentials/verification-submissions", group: "verify", order: 11, icon: Inbox, terms: ["presentation-response", "verifier", "holder", "claim"] },
 
   // 5. SVX Verify
-  { id: "svx-configuration", route: "/verify/configuration", group: "svx", order: 12, icon: ScanFace, terms: ["svx-verify"] },
+  { id: "svx-configuration", route: "/verify/configuration", group: "svx", order: 12, icon: ScanFace, terms: ["svx-verify", "identity-provider", "bridge"] },
 ]
 
 export const STEP_ORDER = STEPS.map((s) => s.id)

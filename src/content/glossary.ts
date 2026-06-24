@@ -17,12 +17,16 @@ export const TERM_IDS = [
   "admin-account",
   "passkey",
   "kms",
+  "bridge",
   "verifiable-credential",
+  "claim",
   "schema",
   "sd-jwt",
+  "vct",
   "credential-template",
   "issuer",
   "issued-credential",
+  "revocation",
   "holder",
   "verification-template",
   "dcql",
@@ -30,6 +34,8 @@ export const TERM_IDS = [
   "presentation-request",
   "presentation-response",
   "svx-verify",
+  "svx-platform",
+  "identity-provider",
 ] as const
 
 export type TermId = (typeof TERM_IDS)[number]

@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next"
 import { BookOpen } from "lucide-react"
 import { TERM_IDS } from "@/content/glossary"
-import { Card, CardContent } from "@/components/ui/card"
 
 export function GlossaryPage() {
   const { t } = useTranslation()
@@ -17,16 +16,24 @@ export function GlossaryPage() {
       </h1>
       <p className="mt-3 max-w-prose text-muted-foreground">{t("ui.glossaryIntro")}</p>
 
-      <div className="mt-8 grid gap-3 sm:grid-cols-2">
+      <dl className="mt-8 divide-y divide-border border-y border-border">
         {terms.map((id) => (
-          <Card key={id} id={id} className="scroll-mt-24">
-            <CardContent className="p-4">
-              <p className="font-semibold text-foreground">{t(`terms.${id}.label`)}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{t(`terms.${id}.def`)}</p>
-            </CardContent>
-          </Card>
+          <div
+            key={id}
+            id={id}
+            className="grid scroll-mt-24 gap-2 py-4 sm:grid-cols-[12rem_1fr] sm:gap-6"
+          >
+            <dt>
+              <span className="inline-block rounded bg-primary/10 px-2 py-0.5 font-medium text-primary">
+                {t(`terms.${id}.label`)}
+              </span>
+            </dt>
+            <dd className="text-sm leading-relaxed text-muted-foreground sm:border-l sm:border-border sm:pl-6">
+              {t(`terms.${id}.def`)}
+            </dd>
+          </div>
         ))}
-      </div>
+      </dl>
     </div>
   )
 }

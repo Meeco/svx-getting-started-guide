@@ -37,7 +37,7 @@
     "imagePlaceholder": "スクリーンショットは近日公開",
     "enlarge": "拡大",
     "enlargeImage": "画像を拡大: {{caption}}",
-    "draftNotice": "下書きコンテンツ — 最終的な文章に差し替えるための仮のテキストです。",
+    "draftNotice": "下書きコンテンツ：最終的な文章に差し替えるための仮のテキストです。",
     "allSteps": "すべてのステップ",
     "reset": "進捗をリセット",
     "youAreHere": "現在地",
@@ -50,13 +50,13 @@
     "wallet-setup": { "title": "ウォレットの準備", "blurb": "使う前にウォレットを立ち上げます。" },
     "issue": { "title": "クレデンシャルの発行", "blurb": "クレデンシャルを設計して発行します。" },
     "verify": { "title": "クレデンシャルの検証", "blurb": "クレデンシャルを要求して確認します。" },
-    "svx": { "title": "SVX Verify", "blurb": "Meeco の本人確認を接続します。" }
+    "svx": { "title": "SVX Verify", "blurb": "Meeco のホスト型検証を接続します。" }
   },
   "steps": {
     "tenant": {
       "title": "テナントをセットアップする",
       "blurb": "ポータル上のあなた専用の管理スペース。",
-      "body": "テナントとは、Meeco ポータル上のあなた専用の区切られた領域です。ここにクレデンシャルは保管されません — 純粋に管理用で、アカウントの管理と組織の作成のためのものです。これが最初に作るものです。",
+      "body": "テナントとは、Meeco ポータル上のあなた専用の区切られた領域です。ここにクレデンシャルは保管されません。純粋に管理用で、アカウントの管理と組織の作成のためのものです。これが最初に作るものです。",
       "steps": [
         { "type": "step", "text": "初めて設定する場合は、サインアップリンクからテナントを作成します。" },
         { "type": "link", "url": "https://login-sandbox.securevalueexchange.com/signup", "label": "サインアップしてテナントを作成する" },
@@ -96,7 +96,7 @@
         { "type": "figure", "src": "portal/applications-view-offline.png", "alt": "OFFLINE のステータスバッジと、ウォレット URL・プラットフォーム URL・テナント ID・組織 ID・クライアント認証情報などのデプロイ情報を表示した View application の詳細ページ。", "caption": "View Wallet — デプロイ準備中は OFFLINE" },
         { "type": "step", "text": "ステータスが online になるまで、ページを更新しながら待ちます。online になればウォレットの準備完了で、デプロイ情報にウォレット URL が表示されます。" },
         { "type": "figure", "src": "portal/applications-view-online.png", "alt": "ONLINE のステータスバッジを表示した View application の詳細ページ。ウォレットデプロイの準備が完了し、ウォレット URL とデプロイ情報が表示されている。", "caption": "View Wallet — ONLINE になりウォレットの準備完了" },
-        { "type": "step", "text": "ウォレット URL を開いて SVX ウォレットのダッシュボードに入ります — ここがクレデンシャルの発行・検証のハブです。" },
+        { "type": "step", "text": "ウォレット URL を開いて SVX ウォレットのダッシュボードに入ります。ここがクレデンシャルの発行・検証のハブです。" },
         { "type": "figure", "src": "portal/applications-wallet-dashboard.png", "alt": "ウォレット URL から開いた SVX ウォレットのダッシュボード。サイドバー（Credentials・SVX Verify・Wallet・Devtools）と、作成済み・検証済み・保留中・失敗のセッション概要が表示されている。", "caption": "SVX ウォレットのダッシュボード — クレデンシャルの発行・検証の準備完了" }
       ]
     },
@@ -211,8 +211,8 @@
     },
     "svx-configuration": {
       "title": "SVX Verify を構成する",
-      "blurb": "Meeco の本人確認を接続します。",
-      "body": "SVX Verify は、アプリを作らなくてもすぐに使える、ホスト型の本人確認サービスです。構成画面では、自社らしい見た目に整えられます。",
+      "blurb": "Meeco のホスト型検証を接続します。",
+      "body": "SVX Verify は、アプリを作らなくてもすぐに使える、ホスト型のデータ検証サービスです。構成画面では、自社らしい見た目に整えられます。",
       "steps": [
         { "type": "step", "text": "SVX Verify → Configuration を開きます。左側を変更すると、右側のライブプレビューに利用者の見え方がそのまま反映されます。" },
         { "type": "figure", "src": "svx/svx-configuration-top.png", "alt": "SVX Verify 構成画面。左にブランド設定、右に検証画面のライブプレビュー。", "caption": "ブランド設定と、検証画面のライブプレビュー" },
@@ -230,31 +230,37 @@
     }
   },
   "terms": {
-    "portal": { "label": "ポータル", "def": "Meeco ポータル — テナント・組織・アプリケーションを設定・管理するウェブサイト。" },
+    "portal": { "label": "ポータル", "def": "Meeco ポータル。テナント・組織・アプリケーションを設定・管理するウェブサイト。" },
     "tenant": { "label": "テナント", "def": "データや設定を保管する、Meeco プラットフォーム上のあなた専用の区切られた領域。" },
-    "tenant-admin": { "label": "テナント管理者", "def": "ポータルでテナントを管理する人 — テナント設定の管理や組織の作成を行う。テナント管理者は他のテナント管理者を招待できる。" },
+    "tenant-admin": { "label": "テナント管理者", "def": "ポータルでテナントを管理する人。テナント設定の管理や組織の作成を行う。テナント管理者は他のテナント管理者を招待できる。" },
     "organisation": { "label": "組織", "def": "テナント内でクレデンシャルを発行・検証する会社やチームの主体。" },
     "application": { "label": "アプリケーション", "def": "組織に接続された動作中のサービス（ウォレットなど）。デプロイとも呼ばれる。" },
     "deployment": { "label": "デプロイ", "def": "起動して接続済みの、アプリケーションの稼働インスタンス。" },
-    "wallet": { "label": "ウォレット", "def": "SVX ウォレット — クレデンシャルの発行・保管・検証を行う統合サービス。" },
+    "wallet": { "label": "ウォレット", "def": "SVX ウォレット。クレデンシャルの発行・保管・検証を行う統合サービス。" },
     "wallet-url": { "label": "ウォレット URL", "def": "デプロイが完了してオンラインになると、デプロイ済みウォレットが利用可能になるウェブアドレス。" },
     "api-key": { "label": "API キー", "def": "ソフトウェアがウォレットに安全に接続するための秘密の鍵。" },
     "api": { "label": "API", "def": "あるシステムが別のシステムと自動でやり取りする仕組み。人がボタンを押さなくても、ソフトウェア同士が直接やり取りします。" },
     "admin-account": { "label": "管理者アカウント", "def": "ウォレットを管理することを許可された人のログイン。" },
     "passkey": { "label": "パスキー", "def": "パスワードの代わりに、端末（指紋・顔・PIN）でサインインする、安全でパスワード不要の方法。ウォレットではスタンドアロンモードで利用できます。" },
-    "kms": { "label": "KMS", "def": "Key Management Service — 暗号化キーを生成・管理する安全な保管庫。" },
+    "kms": { "label": "KMS", "def": "Key Management Service。暗号化キーを生成・管理する安全な保管庫。" },
+    "bridge": { "label": "ブリッジ", "def": "アカウント型のアイデンティティプロバイダーに接続し、検証を補助する、別途デプロイされた SVX ウォレット。" },
     "verifiable-credential": { "label": "検証可能なクレデンシャル", "def": "改ざんできず、本物かどうかを他者が確認できるデジタルな主張。" },
+    "claim": { "label": "クレーム", "def": "クレデンシャルに含まれる一つひとつの情報。氏名や生年月日など。" },
     "schema": { "label": "スキーマ", "def": "クレデンシャルに必要な項目を定義した設計図。" },
     "sd-jwt": { "label": "SD-JWT", "def": "クレデンシャル全体ではなく、ホルダーが選んだ項目だけを共有できる、プライバシーに配慮したクレデンシャル形式。" },
+    "vct": { "label": "VCT", "def": "Verifiable Credential Type。SD-JWT クレデンシャルが何の種類かを示す短いラベル。" },
     "credential-template": { "label": "クレデンシャルテンプレート", "def": "表示やルールを加え、スキーマを発行可能なクレデンシャルに変える再利用可能なレシピ。" },
     "issuer": { "label": "発行者", "def": "クレデンシャルを作成して渡す主体。" },
     "issued-credential": { "label": "発行済みクレデンシャル", "def": "実際に作成され、ホルダーに渡されたクレデンシャル。" },
+    "revocation": { "label": "失効", "def": "発行済みのクレデンシャルを、もう信頼されないように無効化すること。" },
     "holder": { "label": "ホルダー", "def": "クレデンシャルを受け取り、ウォレットに保管する人やもの。" },
     "verification-template": { "label": "検証テンプレート", "def": "検証者がホルダーに提示を求める情報の定義。" },
     "dcql": { "label": "DCQL", "def": "検証者がどのクレデンシャルの、どの項目を求めているかを書き表すためのシンプルな方法。" },
     "verifier": { "label": "検証者", "def": "クレデンシャルを要求して確認する主体。" },
     "presentation-request": { "label": "提示リクエスト", "def": "検証者がホルダーに特定のクレデンシャル情報の共有を求めるリクエスト。" },
     "presentation-response": { "label": "提示レスポンス", "def": "要求された情報を含むホルダーからの返答。" },
-    "svx-verify": { "label": "SVX Verify", "def": "プラットフォームを通じて利用できる Meeco の本人確認サービス。" }
+    "svx-verify": { "label": "SVX Verify", "def": "人のデータを要求・確認するための、プラットフォームを通じて利用できる Meeco のホスト型検証サービス。" },
+    "svx-platform": { "label": "SVX プラットフォーム", "def": "ウォレットをホスト・接続し、アクセス権を管理できる Meeco の上位プラットフォーム。" },
+    "identity-provider": { "label": "アイデンティティプロバイダー", "def": "デジタルウォレットや既存のアカウントなど、人が自分の情報を共有・証明するために使うサービス。" }
   }
 }
