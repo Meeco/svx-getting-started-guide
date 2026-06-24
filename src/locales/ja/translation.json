@@ -101,58 +101,132 @@
       ]
     },
     "api-keys": {
-      "title": "API キーを作成する",
+      "title": "API キーを管理する",
       "blurb": "ソフトウェアが安全に接続するための秘密の鍵。",
       "body": "API キーは、ソフトウェアがウォレットと安全にやり取りするための秘密のパスワードです。家の鍵のように大切に扱い、決して公開しないでください。",
-      "steps": ["ウォレットダッシュボードを開く", "API キーを作成する", "コピーして安全に保管する"]
+      "steps": [
+        { "type": "step", "text": "ウォレットダッシュボードを開き、Wallet → API keys に進みます。" },
+        { "type": "figure", "src": "wallet-setup/api-keys-list.png", "alt": "SVX ウォレットダッシュボードの API キー画面。一覧は空で、「New API key」ボタンがあります。", "caption": "キーを追加する前の API キー画面" },
+        { "type": "step", "text": "New API key をクリックし、用途がわかる名前（例：「Issuance pipeline」）を付けます。" },
+        { "type": "figure", "src": "wallet-setup/api-keys-create.png", "alt": "名前を入力した「New API key」ダイアログと「Create API key」ボタン。", "caption": "新しい API キーに名前を付ける" },
+        { "type": "step", "text": "Client ID と Client secret が表示されます。シークレットは今すぐコピーして安全な場所に保管してください。" },
+        { "type": "figure", "src": "wallet-setup/api-keys-secret.png", "alt": "Client ID と Client secret、コピーボタン、そしてシークレットは一度しか表示されないという警告が表示された作成完了画面。", "caption": "シークレットは一度だけ表示されます — 今すぐコピー" },
+        { "type": "note", "text": "シークレットを見られるのはこの一度きりです。万一なくしても、キーを無効化して新しく作り直せば大丈夫です。" },
+        { "type": "step", "text": "新しいキーが一覧に表示され、ソフトウェアから利用できる状態になります。" },
+        { "type": "figure", "src": "wallet-setup/api-keys-list-filled.png", "alt": "名前・クライアント ID・作成日とともに、新しく作成したキーが並ぶ API キー一覧。", "caption": "利用できる状態になった API キー" },
+        { "type": "step", "text": "アクセスを止めたいときは、一覧からキーを削除すれば即座に無効化できます。そのキーを使っているシステムはすぐに動かなくなります。" }
+      ]
     },
     "admin-accounts": {
-      "title": "管理者アカウントを追加する",
+      "title": "管理者アカウントを管理する",
       "blurb": "誰がウォレットを管理できるかを決めます。",
-      "body": "管理者アカウントは、ログインしてウォレットを管理できる人のことです。管理室への入室権限を誰に与えるか、何を許可するかを決めます。",
-      "steps": ["管理者アカウントを開く", "管理者を招待する", "役割を選ぶ"]
+      "body": "管理者アカウントは、あなたの SVX ウォレットにアクセスできる人のことです。この画面で、新しい人を招待したり、不要になったアクセス権を取り消したりします。",
+      "steps": [
+        { "type": "note", "text": "この画面はスタンドアロンのウォレット向けで、管理者はパスキーでサインインします。SVX Platform 経由で接続・デプロイしている場合は、アクセスは Platform 側で管理されるため、この画面は使いません。" },
+        { "type": "step", "text": "Admin accounts を開くと、現在ウォレットにアクセスできる人の一覧を確認できます。" },
+        { "type": "step", "text": "人を追加するには、招待リンクを作成して相手に共有します。相手はそのリンクから参加し、自分のパスキーによるサインインを設定します。" },
+        { "type": "step", "text": "人を外すには、その招待を削除します。相手はすぐにウォレットへのアクセスを失います。" }
+      ]
     },
     "wallet-settings": {
       "title": "ウォレット設定を構成する",
       "blurb": "ウォレットの動作と鍵の保護方法。",
-      "body": "ウォレット設定は、暗号化キー（KMS）を含め、ウォレットの動作を制御します。SVX 4.0 ではウォレットがこれらの鍵を自動で生成・管理するため、手動での設定がぐっと減ります。",
-      "steps": ["設定を開く", "KMS（Local または AWS）を選ぶ", "変更を保存する"]
+      "body": "ウォレット設定は、ウォレットの動作を制御します。System・Issuer・Verifier・Wallets・Bridge という分かりやすいセクションに分かれており、必要なものを見つけやすくなっています。",
+      "steps": [
+        { "type": "step", "text": "Wallet → Wallet Settings を開くと、左側にセクションの一覧が表示されます。" },
+        { "type": "figure", "src": "wallet-setup/settings-system-auth.png", "alt": "ウォレット設定画面。左側にセクション一覧（System、Issuer、Verifier、Wallets、Bridge）があり、System 設定が開いています。", "caption": "セクションごとに整理されたウォレット設定" },
+        { "type": "note", "text": "SVX 4.0 ではウォレットが自分の暗号化キー（KMS）を自動で生成・管理するため、手動で設定することはほとんどありません。" },
+        { "type": "step", "text": "ほとんどのチームは初期設定のままで問題ありません。特別な理由があるときだけ設定を変更しましょう。" },
+        { "type": "step", "text": "変更したら Save をクリックして反映します。" }
+      ]
     },
     "schemas": {
       "title": "スキーマを定義する",
       "blurb": "クレデンシャルの設計図。",
       "body": "スキーマはクレデンシャルの設計図です。「氏名」や「生年月日」など、クレデンシャルに必要な項目を定義します。発行するものはすべてスキーマから始まります。",
-      "steps": ["スキーマを開く", "スキーマを作成する", "項目を定義する"]
+      "steps": [
+        { "type": "step", "text": "Credentials → Credential schemas を開き、Create schema をクリックします。" },
+        { "type": "figure", "src": "issue/schemas-list.png", "alt": "一覧が空で「Create schema」ボタンがあるクレデンシャルスキーマ画面。", "caption": "スキーマを追加する前の画面" },
+        { "type": "step", "text": "クイックスタートテンプレートを使えば簡単です。Photo ID プリセットと Digital Credentials（dc+sd-jwt）形式を選び、スキーマに名前を付けます。" },
+        { "type": "figure", "src": "issue/schemas-create-photo-id.png", "alt": "Photo ID のクイックスタートテンプレートと dc+sd-jwt 形式を選んだスキーマ作成フォーム。生成された項目が表示されています。", "caption": "Photo ID プリセットから SD-JWT 形式で作成" },
+        { "type": "note", "text": "SD-JWT はプライバシーに配慮したクレデンシャル形式です。クレデンシャル全体ではなく、ホルダーが選んだ項目だけを共有できます。" },
+        { "type": "step", "text": "プリセットが追加した項目（氏名・生年月日・書類番号・顔写真）をひと通り確認し、Create schema をクリックします。" },
+        { "type": "figure", "src": "issue/schemas-list-filled.png", "alt": "ID と dc+sd-jwt 形式とともに、新しい Photo ID スキーマが表示された一覧。", "caption": "利用できる状態になった Photo ID スキーマ" }
+      ]
     },
     "credential-templates": {
       "title": "クレデンシャルテンプレートを作る",
       "blurb": "スキーマを発行できる形にします。",
       "body": "クレデンシャルテンプレートは、スキーマを発行可能なクレデンシャルに変えます。見た目や発行のルールを加えた、何度でも使える「レシピ」です。",
-      "steps": ["クレデンシャルテンプレートを開く", "スキーマを選ぶ", "表示と発行のルールを追加する"]
+      "steps": [
+        { "type": "step", "text": "Credentials → Credential templates を開き、Create template をクリックします。" },
+        { "type": "figure", "src": "issue/templates-list.png", "alt": "一覧が空で「Create template」ボタンがあるクレデンシャルテンプレート画面。", "caption": "テンプレートを追加する前の画面" },
+        { "type": "step", "text": "テンプレートに名前を付け、Photo ID スキーマを選びます。形式はスキーマに合わせて自動設定されます。" },
+        { "type": "figure", "src": "issue/templates-create-photo-id.png", "alt": "Photo ID スキーマを選んだテンプレート作成フォーム。スタイル設定と、右側にクレデンシャルのライブプレビューがあります。", "caption": "スキーマからテンプレートを作成（ライブプレビュー付き）" },
+        { "type": "step", "text": "色やロゴ、有効期限など、仕上げの設定を加えます。" },
+        { "type": "note", "text": "SD-JWT クレデンシャルでは、短いクレデンシャルタイプ（VCT）も指定します。これは「どんな種類のクレデンシャルか」を表すラベルです。" },
+        { "type": "step", "text": "Create Template をクリックします。一覧に表示され、発行できる状態になります。" },
+        { "type": "figure", "src": "issue/templates-list-filled.png", "alt": "形式とスキーマとともに、新しい Photo ID テンプレートが表示された一覧。", "caption": "発行できる状態になった Photo ID テンプレート" }
+      ]
     },
     "issued-credentials": {
-      "title": "クレデンシャルを発行・確認する",
+      "title": "クレデンシャルを確認する",
       "blurb": "実際に渡したクレデンシャル。",
       "body": "発行済みクレデンシャルは、あなたが作成して人（ホルダー）に渡した実際のクレデンシャルです。発行したすべてのクレデンシャルをここで確認・管理できます。",
-      "steps": ["発行済みクレデンシャルを開く", "テンプレートから発行する", "状態を確認する"]
+      "steps": [
+        { "type": "step", "text": "Credentials → View credentials を開くと、発行したすべてのクレデンシャルを確認できます。" },
+        { "type": "figure", "src": "issue/issued-credentials-list.png", "alt": "形式と発行日とともに、発行済みの Photo ID クレデンシャルが並ぶ View credentials 画面。", "caption": "発行済みクレデンシャルの一覧" },
+        { "type": "step", "text": "クレデンシャルは、API で接続したあなた自身のシステムが発行します。テンプレートからクレデンシャルを作成し、ホルダーに渡すと、相手のウォレットに届きます。" },
+        { "type": "note", "text": "クレデンシャルを発行する API 接続システムの構築は、本ガイドの対象外です。" },
+        { "type": "step", "text": "クレデンシャルをクリックすると詳細と状態を確認できます。信頼すべきでなくなった場合は無効化もできます。" },
+        { "type": "figure", "src": "issue/issued-credentials-detail.png", "alt": "発行済みクレデンシャルの詳細パネル。ID・形式に加え、含まれるクレーム（氏名・生年月日・書類番号など）が表示されています。", "caption": "1 件のクレデンシャルの詳細" }
+      ]
     },
     "verification-templates": {
       "title": "検証テンプレートを作成する",
       "blurb": "確認したい内容を定義します。",
-      "body": "検証テンプレートは、確認したい内容を定義します。相手がどのクレデンシャルを持っているべきか、どの項目を提示すべきかを指定します。証明を求める前の「質問」にあたります。",
-      "steps": ["検証テンプレートを開く", "テンプレートを作成する", "要求する情報を選ぶ"]
+      "body": "検証テンプレートは、あなたが投げかける「質問」です。相手がどのクレデンシャルを持っているべきか、どの項目を提示すべきかを指定します。一度作れば、確認のたびに再利用できます。",
+      "steps": [
+        { "type": "step", "text": "Credentials → Verification templates を開き、Create template をクリックします。" },
+        { "type": "figure", "src": "verify/verification-templates-list.png", "alt": "一覧が空で「Create template」ボタンがある検証テンプレート画面。", "caption": "テンプレートを追加する前の画面" },
+        { "type": "step", "text": "JSON Editor に切り替え、用意されたサンプルを選びます。Photo ID を求めるには「DCQL - Photo ID (SD-JWT)」を選びます。" },
+        { "type": "figure", "src": "verify/verification-templates-create-dcql.png", "alt": "「DCQL - Photo ID (SD-JWT)」サンプルを選んだ検証テンプレートの JSON エディター。要求される DCQL のクレームが表示されています。", "caption": "Photo ID サンプルを使って DCQL でリクエストを作成" },
+        { "type": "note", "text": "DCQL は、どのクレデンシャルのどの項目を求めるかを書き表す方法にすぎません。サンプルが自動で入力するので、手書きする必要はありません。" },
+        { "type": "step", "text": "テンプレートに名前と短い目的（例：「ホルダーの Photo ID を検証」）を付け、Create をクリックします。" },
+        { "type": "figure", "src": "verify/verification-templates-list-filled.png", "alt": "新しい Photo-ID-check テンプレートが表示された検証テンプレート一覧。", "caption": "利用できる状態になった検証テンプレート" }
+      ]
     },
     "verification-submissions": {
       "title": "検証の提出を確認する",
       "blurb": "送られてきた内容を確認します。",
-      "body": "検証の提出は、証明を求めたときに相手が送り返してくる回答です。共有された内容を確認し、チェックに合格したかどうかを判断します。",
-      "steps": ["提出を開く", "回答を開く", "合格しているか確認する"]
+      "body": "証明を求めると、相手の回答が「検証の提出」として届きます。共有された内容を確認し、チェックに合格したかどうかを判断します。",
+      "steps": [
+        { "type": "step", "text": "Credentials → Verification requests を開くと、返ってきた回答を確認できます。" },
+        { "type": "figure", "src": "verify/verification-requests-list.png", "alt": "完了した Photo-ID-check リクエストが並ぶ Verification requests 画面。", "caption": "検証リクエストの一覧" },
+        { "type": "step", "text": "回答を開くと、ホルダーが共有することを選んだ内容を確認できます。" },
+        { "type": "figure", "src": "verify/verification-requests-response.png", "alt": "Verified の状態と、ホルダーが共有した項目（氏名・生年月日・書類番号・顔写真など）が表示された Response Details パネル。", "caption": "検証済みの回答と、共有された内容" },
+        { "type": "note", "text": "クレデンシャルが本物で改ざんされていないことはウォレットがすでに確認済みです。緑色の「Verified」バッジは、表示内容を信頼できることを意味します。" },
+        { "type": "step", "text": "回答がチェックに合格しているかを確認すれば完了です。" }
+      ]
     },
     "svx-configuration": {
       "title": "SVX Verify を構成する",
       "blurb": "Meeco の本人確認を接続します。",
-      "body": "SVX Verify は Meeco の本人確認サービスです。構成画面では、接続を行い、自分の検証フローに合わせて動作を調整します。",
-      "steps": ["SVX Verify を開く", "設定を構成する", "テスト検証を実行する"]
+      "body": "SVX Verify は、アプリを作らなくてもすぐに使える、ホスト型の本人確認サービスです。構成画面では、自社らしい見た目に整えられます。",
+      "steps": [
+        { "type": "step", "text": "SVX Verify → Configuration を開きます。左側を変更すると、右側のライブプレビューに利用者の見え方がそのまま反映されます。" },
+        { "type": "figure", "src": "svx/svx-configuration-top.png", "alt": "SVX Verify 構成画面。左にブランド設定、右に検証画面のライブプレビュー。", "caption": "ブランド設定と、検証画面のライブプレビュー" },
+        { "type": "step", "text": "ブランド名、連絡先、利用規約・プライバシーポリシーへのリンクを設定します。" },
+        { "type": "figure", "src": "svx/svx-configuration-middle.png", "alt": "SVX Verify 構成画面の連絡先情報と法的リンクの入力欄。", "caption": "連絡先と法的リンク" },
+        { "type": "step", "text": "利用者が使える ID プロバイダーと、利用規約への同意を必須にするかどうかを選びます。" },
+        { "type": "p", "text": "ID プロバイダーには 2 種類あります。ウォレット型（Meeco Wallet など）は、デジタルウォレットからそのまま情報を共有でき、オンにするだけで使えるため、まず始めるのに最適です。アカウント型は、既存のアカウントでサインインできますが、Bridge 経由で接続する必要があり、設定にかなりの手間がかかります。一覧では、設定が済むまで「Bridge not configured」と表示されます。" },
+        { "type": "note", "text": "アカウント型は先に Bridge の設定が必要で、本ガイドの対象外です。まずは Meeco Wallet などのウォレット型を使うと、すぐに始められます。" },
+        { "type": "figure", "src": "svx/svx-configuration-bottom.png", "alt": "Meeco Wallet プロバイダーがオンになった SVX Verify の ID プロバイダー一覧。", "caption": "利用者が使える ID プロバイダーを選ぶ" },
+        { "type": "step", "text": "最後に、SVX Verify が使える検証テンプレート（例：Photo ID チェック）を選び、Save をクリックします。" },
+        { "type": "figure", "src": "svx/svx-configuration-foot.png", "alt": "Photo-ID-check テンプレートを選んだプレゼンテーションテンプレートのセクションと Save ボタン。", "caption": "検証テンプレートを紐付けて保存" },
+        { "type": "step", "text": "Save & preview をクリックすると、テスト用のライブセッションが作成されます。これは利用者が実際に目にし、使うものとまったく同じです。" },
+        { "type": "note", "text": "右側のプレビューはあくまで目安で、ライブの結果を 100% 再現するわけではありません。実際の見え方は必ず Save & preview で確認してください。" }
+      ]
     }
   },
   "terms": {
@@ -165,15 +239,19 @@
     "wallet": { "label": "ウォレット", "def": "SVX ウォレット — クレデンシャルの発行・保管・検証を行う統合サービス。" },
     "wallet-url": { "label": "ウォレット URL", "def": "デプロイが完了してオンラインになると、デプロイ済みウォレットが利用可能になるウェブアドレス。" },
     "api-key": { "label": "API キー", "def": "ソフトウェアがウォレットに安全に接続するための秘密の鍵。" },
+    "api": { "label": "API", "def": "あるシステムが別のシステムと自動でやり取りする仕組み。人がボタンを押さなくても、ソフトウェア同士が直接やり取りします。" },
     "admin-account": { "label": "管理者アカウント", "def": "ウォレットを管理することを許可された人のログイン。" },
+    "passkey": { "label": "パスキー", "def": "パスワードの代わりに、端末（指紋・顔・PIN）でサインインする、安全でパスワード不要の方法。ウォレットではスタンドアロンモードで利用できます。" },
     "kms": { "label": "KMS", "def": "Key Management Service — 暗号化キーを生成・管理する安全な保管庫。" },
     "verifiable-credential": { "label": "検証可能なクレデンシャル", "def": "改ざんできず、本物かどうかを他者が確認できるデジタルな主張。" },
     "schema": { "label": "スキーマ", "def": "クレデンシャルに必要な項目を定義した設計図。" },
+    "sd-jwt": { "label": "SD-JWT", "def": "クレデンシャル全体ではなく、ホルダーが選んだ項目だけを共有できる、プライバシーに配慮したクレデンシャル形式。" },
     "credential-template": { "label": "クレデンシャルテンプレート", "def": "表示やルールを加え、スキーマを発行可能なクレデンシャルに変える再利用可能なレシピ。" },
     "issuer": { "label": "発行者", "def": "クレデンシャルを作成して渡す主体。" },
     "issued-credential": { "label": "発行済みクレデンシャル", "def": "実際に作成され、ホルダーに渡されたクレデンシャル。" },
     "holder": { "label": "ホルダー", "def": "クレデンシャルを受け取り、ウォレットに保管する人やもの。" },
     "verification-template": { "label": "検証テンプレート", "def": "検証者がホルダーに提示を求める情報の定義。" },
+    "dcql": { "label": "DCQL", "def": "検証者がどのクレデンシャルの、どの項目を求めているかを書き表すためのシンプルな方法。" },
     "verifier": { "label": "検証者", "def": "クレデンシャルを要求して確認する主体。" },
     "presentation-request": { "label": "提示リクエスト", "def": "検証者がホルダーに特定のクレデンシャル情報の共有を求めるリクエスト。" },
     "presentation-response": { "label": "提示レスポンス", "def": "要求された情報を含むホルダーからの返答。" },

@@ -101,58 +101,132 @@
       ]
     },
     "api-keys": {
-      "title": "Create API Keys",
+      "title": "Manage API Keys",
       "blurb": "Secret keys so software can connect safely.",
       "body": "API keys are secret passwords that let your software talk to the Wallet securely. Treat them like the keys to your house — keep them safe and never share them publicly.",
-      "steps": ["Open the Wallet Dashboard", "Create an API key", "Copy and store it somewhere safe"]
+      "steps": [
+        { "type": "step", "text": "Open your Wallet dashboard and go to Wallet → API keys." },
+        { "type": "figure", "src": "wallet-setup/api-keys-list.png", "alt": "The API keys page in the SVX Wallet dashboard, with an empty list and a 'New API key' button.", "caption": "The API keys page before you've added any keys" },
+        { "type": "step", "text": "Click New API key and give it a clear name — like 'Issuance pipeline' — so you'll remember what it's for later." },
+        { "type": "figure", "src": "wallet-setup/api-keys-create.png", "alt": "The 'New API key' dialog with a Name field filled in, and a 'Create API key' button.", "caption": "Naming a new API key" },
+        { "type": "step", "text": "The Wallet shows you a Client ID and a Client secret. Copy the secret now and store it somewhere safe." },
+        { "type": "figure", "src": "wallet-setup/api-keys-secret.png", "alt": "The key-created screen showing the Client ID and Client secret, with copy buttons and a warning that the secret is shown only once.", "caption": "Copy the client secret — it's only shown once" },
+        { "type": "note", "text": "You can only see the secret this one time. If you ever lose it, just revoke the key and create a new one." },
+        { "type": "step", "text": "Your new key now appears in the list, ready for your software to use." },
+        { "type": "figure", "src": "wallet-setup/api-keys-list-filled.png", "alt": "The API keys list showing the newly created key with its name, client ID and creation date.", "caption": "Your API key, ready to use" },
+        { "type": "step", "text": "Need to cut off access? Delete a key from the list to instantly revoke it — any system still using that key stops working straight away." }
+      ]
     },
     "admin-accounts": {
-      "title": "Add Admin Accounts",
+      "title": "Manage Admin Accounts",
       "blurb": "Decide who can manage the Wallet.",
-      "body": "Admin accounts are the people allowed to log in and manage the Wallet. You decide who gets access to the control room and what they're allowed to do.",
-      "steps": ["Open Admin Accounts", "Invite an admin", "Choose their role"]
+      "body": "Admin accounts are the people who have access to your SVX Wallet. This is where you invite new people in and remove access when it's no longer needed.",
+      "steps": [
+        { "type": "note", "text": "This page applies to standalone Wallets, where admins sign in with a passkey. If your Wallet is connected or deployed through SVX Platform, access is managed by the Platform instead — so this page doesn't apply." },
+        { "type": "step", "text": "Open Admin accounts to see everyone who currently has access to the Wallet." },
+        { "type": "step", "text": "To add someone, create an invite link and share it with them. They use the link to join and set up their own passkey sign-in." },
+        { "type": "step", "text": "To remove someone, delete their invite — they lose access to the Wallet right away." }
+      ]
     },
     "wallet-settings": {
       "title": "Configure Wallet Settings",
       "blurb": "How your wallet behaves and protects keys.",
-      "body": "Wallet settings control how your wallet behaves, including its encryption keys (the KMS). In SVX 4.0 the Wallet creates and looks after these keys for you, so there's much less to configure by hand.",
-      "steps": ["Open Settings", "Choose your KMS (Local or AWS)", "Save your changes"]
+      "body": "Wallet settings control how your Wallet behaves. They're grouped into tidy sections — System, Issuer, Verifier, Wallets and Bridge — so you can find the one you need.",
+      "steps": [
+        { "type": "step", "text": "Open Wallet → Wallet Settings to see the sections down the left." },
+        { "type": "figure", "src": "wallet-setup/settings-system-auth.png", "alt": "The Wallet Settings page, with a list of setting sections (System, Issuer, Verifier, Wallets, Bridge) on the left and the System settings open.", "caption": "Wallet Settings, grouped into sections" },
+        { "type": "note", "text": "In SVX 4.0 the Wallet creates and looks after its own encryption keys (its KMS) for you, so there's very little to set up by hand." },
+        { "type": "step", "text": "Most teams can leave the defaults exactly as they are. Only change a setting if you have a specific reason to." },
+        { "type": "step", "text": "If you do change something, click Save to apply it." }
+      ]
     },
     "schemas": {
       "title": "Define Schemas",
       "blurb": "The blueprint for a credential.",
       "body": "A schema is the blueprint for a credential. It lists the fields a credential must contain — for example 'full name' and 'date of birth'. Everything you issue starts from a schema.",
-      "steps": ["Open Schemas", "Create a schema", "Define its fields"]
+      "steps": [
+        { "type": "step", "text": "Open Credentials → Credential schemas, then click Create schema." },
+        { "type": "figure", "src": "issue/schemas-list.png", "alt": "The Credential schemas page with an empty list and a 'Create schema' button.", "caption": "The schemas page before you add one" },
+        { "type": "step", "text": "Save yourself time with a quick-start template: pick the Photo ID preset and the Digital Credentials (dc+sd-jwt) format, then give your schema a name." },
+        { "type": "figure", "src": "issue/schemas-create-photo-id.png", "alt": "The Create credential schema form with the Photo ID quick-start template and the dc+sd-jwt target format selected, showing the generated schema fields.", "caption": "Starting from the Photo ID preset in the SD-JWT format" },
+        { "type": "note", "text": "SD-JWT is a privacy-friendly credential format. It lets the holder share only the fields they choose, rather than handing over the whole credential." },
+        { "type": "step", "text": "Glance over the fields the preset added — like name, date of birth, document number and portrait — then click Create schema." },
+        { "type": "figure", "src": "issue/schemas-list-filled.png", "alt": "The schemas list showing the new Photo ID schema with its ID and the dc+sd-jwt format.", "caption": "Your Photo ID schema, ready to use" }
+      ]
     },
     "credential-templates": {
       "title": "Build Credential Templates",
       "blurb": "Turn a schema into something you can issue.",
       "body": "A credential template turns a schema into a ready-to-issue credential. It adds how the credential looks and the rules for handing it out — a reusable recipe you'll use again and again.",
-      "steps": ["Open Credential Templates", "Pick a schema", "Add display and issuance rules"]
+      "steps": [
+        { "type": "step", "text": "Open Credentials → Credential templates and click Create template." },
+        { "type": "figure", "src": "issue/templates-list.png", "alt": "The Credential templates page with an empty list and a 'Create template' button.", "caption": "The templates page before you add one" },
+        { "type": "step", "text": "Give the template a name, then choose your Photo ID schema. The format is set for you to match the schema." },
+        { "type": "figure", "src": "issue/templates-create-photo-id.png", "alt": "The Create credential template form with the Photo ID schema selected, styling options, and a live credential preview on the right.", "caption": "Building a template from the schema, with a live preview" },
+        { "type": "step", "text": "Add a few finishing touches — colours, a logo, and how long the credential stays valid." },
+        { "type": "note", "text": "For SD-JWT credentials you'll also add a short credential type (VCT). It's just a label that says what kind of credential this is." },
+        { "type": "step", "text": "Click Create Template. It now appears in your list, ready to issue." },
+        { "type": "figure", "src": "issue/templates-list-filled.png", "alt": "The credential templates list showing the new Photo ID template with its format and schema.", "caption": "Your Photo ID template, ready to issue" }
+      ]
     },
     "issued-credentials": {
-      "title": "Issue & View Credentials",
+      "title": "View Credentials",
       "blurb": "The real credentials you've handed out.",
       "body": "Issued credentials are the real credentials you've created and given to people (holders). This is where you can see, track and manage every credential you've issued.",
-      "steps": ["Open Issued Credentials", "Issue one from a template", "Check its status"]
+      "steps": [
+        { "type": "step", "text": "Open Credentials → View credentials to see everything you've issued." },
+        { "type": "figure", "src": "issue/issued-credentials-list.png", "alt": "The View credentials page listing an issued Photo ID credential with its format and issue date.", "caption": "The issued credentials list" },
+        { "type": "step", "text": "Credentials are issued by your own API-connected systems — they create the credential from a template and hand it to the holder, so it lands in their wallet." },
+        { "type": "note", "text": "Setting up an API-connected system to issue credentials is out of scope of this guide." },
+        { "type": "step", "text": "Click any credential to see its details and track its status — and revoke it if it should no longer be trusted." },
+        { "type": "figure", "src": "issue/issued-credentials-detail.png", "alt": "The Credential Details panel for an issued credential, showing its ID and format alongside the claims it contains — name, date of birth, document number and more.", "caption": "A single credential's details" }
+      ]
     },
     "verification-templates": {
       "title": "Create Verification Templates",
       "blurb": "Describe what you want to check.",
-      "body": "A verification template describes what you want to check: which credential a person should hold and exactly which fields they need to show you. It's the question you ask before someone proves something.",
-      "steps": ["Open Verification Templates", "Create a template", "Choose the information to request"]
+      "body": "A verification template is the question you ask: which credential a person should hold, and exactly which fields they need to show you. You set it up once and reuse it whenever you need to check someone.",
+      "steps": [
+        { "type": "step", "text": "Open Credentials → Verification templates and click Create template." },
+        { "type": "figure", "src": "verify/verification-templates-list.png", "alt": "The Verification templates page with an empty list and a 'Create template' button.", "caption": "The verification templates page before you add one" },
+        { "type": "step", "text": "Switch to the JSON Editor, then pick a ready-made sample — choose 'DCQL - Photo ID (SD-JWT)' to ask for a Photo ID." },
+        { "type": "figure", "src": "verify/verification-templates-create-dcql.png", "alt": "The verification template JSON editor with the 'DCQL - Photo ID (SD-JWT)' sample selected, showing the DCQL claims that will be requested.", "caption": "Building the request with DCQL, using the Photo ID sample" },
+        { "type": "note", "text": "DCQL is simply the way the request writes down exactly which credential and fields to ask for. The sample fills it in for you — there's nothing to write by hand." },
+        { "type": "step", "text": "Give the template a name and a short purpose, like 'Verify the holder's Photo ID', then click Create." },
+        { "type": "figure", "src": "verify/verification-templates-list-filled.png", "alt": "The verification templates list showing the new Photo-ID-check template.", "caption": "Your verification template, ready to use" }
+      ]
     },
     "verification-submissions": {
       "title": "Review Verification Submissions",
       "blurb": "See what people sent back.",
-      "body": "Verification submissions are the answers people send back when you ask them to prove something. Here you review what they shared and confirm whether it passed your checks.",
-      "steps": ["Open Submissions", "Open a response", "Confirm it passed"]
+      "body": "When you ask someone to prove something, their reply is a verification submission. Here you review what they shared and confirm whether it passed your checks.",
+      "steps": [
+        { "type": "step", "text": "Open Credentials → Verification requests to see what's come back." },
+        { "type": "figure", "src": "verify/verification-requests-list.png", "alt": "The Verification requests page listing a completed Photo-ID-check request.", "caption": "The verification requests list" },
+        { "type": "step", "text": "Open a response to see exactly what the holder chose to share." },
+        { "type": "figure", "src": "verify/verification-requests-response.png", "alt": "The Response Details panel showing a Verified status and the claims the holder shared — name, date of birth, document number, portrait and more.", "caption": "A verified response, with the shared details" },
+        { "type": "note", "text": "The Wallet has already checked that the credential is genuine and hasn't been tampered with — the green 'Verified' badge means you can trust what you see." },
+        { "type": "step", "text": "Confirm whether the response passed your checks, and you're done." }
+      ]
     },
     "svx-configuration": {
       "title": "Configure SVX Verify",
       "blurb": "Connect Meeco's identity verification.",
-      "body": "SVX Verify is Meeco's identity-checking service. Configuration is where you connect it and tune how it works for your own verification flows.",
-      "steps": ["Open SVX Verify", "Configure your settings", "Run a test verification"]
+      "body": "SVX Verify is a ready-made, hosted way to run identity checks — no app to build. Configuration is where you make it look and feel like your own.",
+      "steps": [
+        { "type": "step", "text": "Open SVX Verify → Configuration. As you change things on the left, a live preview on the right shows exactly what people will see." },
+        { "type": "figure", "src": "svx/svx-configuration-top.png", "alt": "The SVX Verify Configuration page: branding fields on the left and a live preview of the verification screen on the right.", "caption": "Branding, with a live preview of the verification screen" },
+        { "type": "step", "text": "Set your brand name, contact details, and links to your terms and privacy policy." },
+        { "type": "figure", "src": "svx/svx-configuration-middle.png", "alt": "The contact information and legal-link fields in the SVX Verify configuration.", "caption": "Contact details and legal links" },
+        { "type": "step", "text": "Choose which identity providers people can use, and whether they must accept your terms first." },
+        { "type": "p", "text": "There are two kinds. Wallet-based providers (like Meeco Wallet) let people share straight from a digital wallet — they're simple to switch on, so they're a great place to start. Account-based providers let people sign in with an existing account, but they connect through the Bridge and take a lot more to set up — in the list they're marked 'Bridge not configured' until that's done." },
+        { "type": "note", "text": "Account-based providers need the Bridge configured first, which is out of scope for this guide. Stick with a wallet-based provider like Meeco Wallet to get going quickly." },
+        { "type": "figure", "src": "svx/svx-configuration-bottom.png", "alt": "The identity providers list in SVX Verify, with the Meeco Wallet provider switched on.", "caption": "Choosing which identity providers people can use" },
+        { "type": "step", "text": "Finally, pick which verification template SVX Verify is allowed to use — for example your Photo ID check — then click Save." },
+        { "type": "figure", "src": "svx/svx-configuration-foot.png", "alt": "The presentation templates section with the Photo-ID-check template selected, and the Save button.", "caption": "Linking your verification template, then saving" },
+        { "type": "step", "text": "Click Save & preview to spin up a real, live verification session — this is exactly what your users will see and use." },
+        { "type": "note", "text": "The preview on the right is only a rough guide and doesn't perfectly match the live result. Always confirm the real experience with Save & preview." }
+      ]
     }
   },
   "terms": {
@@ -165,15 +239,19 @@
     "wallet": { "label": "Wallet", "def": "The SVX Wallet — one unified service that issues, holds and verifies credentials." },
     "wallet-url": { "label": "Wallet URL", "def": "The web address where your deployed Wallet becomes available once its deployment is online." },
     "api-key": { "label": "API key", "def": "A secret key that lets your software connect to the Wallet securely." },
+    "api": { "label": "API", "def": "A way for one system to talk to another automatically — software to software, with no one clicking buttons." },
     "admin-account": { "label": "Admin account", "def": "A login for a person who is allowed to manage the Wallet." },
+    "passkey": { "label": "Passkey", "def": "A secure, passwordless way to sign in using your device — your fingerprint, face or PIN — instead of a password. In the Wallet, available in standalone mode." },
     "kms": { "label": "KMS", "def": "Key Management Service — the secure vault that creates and looks after your encryption keys." },
     "verifiable-credential": { "label": "Verifiable Credential", "def": "A tamper-proof digital claim about someone or something that others can check is genuine." },
     "schema": { "label": "Schema", "def": "The blueprint listing the fields a credential must contain." },
+    "sd-jwt": { "label": "SD-JWT", "def": "A privacy-friendly credential format that lets the holder share only the fields they choose, instead of the whole credential." },
     "credential-template": { "label": "Credential template", "def": "A reusable recipe that turns a schema into an issuable credential, with display and rules." },
     "issuer": { "label": "Issuer", "def": "The party that creates and gives out credentials." },
     "issued-credential": { "label": "Issued credential", "def": "A credential that has actually been created and handed to a holder." },
     "holder": { "label": "Holder", "def": "The person or thing that receives and keeps a credential in their wallet." },
     "verification-template": { "label": "Verification template", "def": "A definition of what information a verifier asks a holder to show." },
+    "dcql": { "label": "DCQL", "def": "A simple way to write down exactly which credential, and which fields from it, a verifier is asking for." },
     "verifier": { "label": "Verifier", "def": "The party that requests and checks credentials." },
     "presentation-request": { "label": "Presentation request", "def": "The request a verifier sends asking a holder to share specific credential information." },
     "presentation-response": { "label": "Presentation response", "def": "The holder's reply containing the requested credential information." },
