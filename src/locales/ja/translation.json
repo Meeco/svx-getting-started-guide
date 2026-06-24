@@ -14,6 +14,7 @@
     "stepN": "ステップ {{n}} / {{total}}",
     "markComplete": "完了にする",
     "markedComplete": "完了",
+    "lessonDone": "お疲れさまでした！",
     "openLesson": "レッスンを開く",
     "whatIsThis": "これは何？",
     "recommendedNext": "次のおすすめ",
@@ -32,6 +33,10 @@
     "searchPlaceholder": "ステップや用語を検索…",
     "stepsHeading": "進める手順",
     "keyTerms": "重要な用語",
+    "figureLabel": "図",
+    "imagePlaceholder": "スクリーンショットは近日公開",
+    "enlarge": "拡大",
+    "enlargeImage": "画像を拡大: {{caption}}",
     "draftNotice": "下書きコンテンツ — 最終的な文章に差し替えるための仮のテキストです。",
     "allSteps": "すべてのステップ",
     "reset": "進捗をリセット",
@@ -50,21 +55,48 @@
   "steps": {
     "tenant": {
       "title": "テナントを作成する",
-      "blurb": "プラットフォーム上のあなた専用のスペース。",
-      "body": "テナントとは、Meeco プラットフォーム上のあなた専用の区切られた領域です。大きなビルの中で自分の部屋を借りるようなもので、クレデンシャル・設定・データはすべてあなたのもので、他の人とは分けて保管されます。これが最初に作るものです。",
-      "steps": ["Meeco ポータルにサインインする", "新しいテナントを作成する", "テナントに名前を付ける"]
+      "blurb": "ポータル上のあなた専用の管理スペース。",
+      "body": "テナントとは、Meeco ポータル上のあなた専用の区切られた領域です。ここにクレデンシャルは保管されません — 純粋に管理用で、アカウントの管理と組織の作成のためのものです。これが最初に作るものです。",
+      "steps": [
+        { "type": "step", "text": "初めて設定する場合は、サインアップリンクからテナントを作成します。" },
+        { "type": "link", "url": "https://login-sandbox.securevalueexchange.com/signup", "label": "サインアップしてテナントを作成する" },
+        { "type": "step", "text": "その後、ポータルダッシュボードにサインインして管理します。" },
+        { "type": "link", "url": "https://portal-sandbox.securevalueexchange.com/dashboard", "label": "ポータルダッシュボードを開く" },
+        { "type": "step", "text": "テナントの名前とロゴを設定するには、テナントロゴのメニュー → Manage Tenancy → Account Settings を開き、ロゴをアップロードして Save します。" },
+        { "type": "figure", "src": "portal/tenant-account-settings.png", "alt": "テナント名・テナント ID・テナントロゴをアップロードするドラッグ＆ドロップ領域と、Cancel・Save ボタンを表示した、Manage Tenancy 配下のポータルの Account Settings 画面。", "caption": "Account Settings — テナントの名前とロゴを更新する" },
+        { "type": "step", "text": "他のテナント管理者を招待するには、Manage Tenancy → Administrators → Add Administrator に進みます。" },
+        { "type": "figure", "src": "portal/tenant-add-administrator.png", "alt": "氏名（given name・family name）・メールアドレス・任意の歓迎メッセージの入力欄と Add ボタンを備えた、Manage Tenancy → Administrators 配下の Add Administrator フォーム。", "caption": "Add Administrator — 他のテナント管理者を招待する" }
+      ]
     },
     "organisation": {
-      "title": "組織を追加する",
-      "blurb": "設定を所有する会社やチーム。",
-      "body": "組織とは、テナントの中に存在する会社やチームの主体です。クレデンシャルを発行・検証するブランドであり、ここで行うすべての「主体」となります。",
-      "steps": ["テナントを開く", "組織を追加する", "名称と詳細を入力する"]
+      "title": "組織を作成する",
+      "blurb": "ウォレットへのアクセスを管理するチームの主体。",
+      "body": "組織はテナントの中に存在します。テナントと同様にクレデンシャルは保管されませんが、テナントからデプロイするウォレットに誰がアクセスできるかを管理します。",
+      "steps": [
+        { "type": "step", "text": "ポータルのサイドバーで Organizations に移動します。" },
+        { "type": "step", "text": "Add Organization をクリックし、名前・任意の URL・ロゴを設定して Create をクリックします。" },
+        { "type": "figure", "src": "portal/organisation-create.png", "alt": "組織名・組織 URL の入力欄、ロゴをアップロードするドラッグ＆ドロップ領域、Create ボタンを備えた、ポータルの Add Organization フォーム。", "caption": "Add Organization — 名前・URL・ロゴ" },
+        { "type": "step", "text": "作成した組織が Organizations の一覧に表示されます。一覧でその組織のロゴをクリックすると起動します。" },
+        { "type": "figure", "src": "portal/organisation-launch.png", "alt": "ロゴ・名前・作成日とともに組織の行が表示されたポータルの Organizations 一覧。ロゴをクリックすると組織が起動する。", "caption": "Organizations 一覧 — 組織のロゴをクリックして起動する" },
+        { "type": "step", "text": "組織内で Manage Organisation → Administrators → Add administrator に進むと、組織レベルの管理者を作成できます。" },
+        { "type": "figure", "src": "portal/organisation-add-administrator.png", "alt": "組織の Manage Organisation → Administrators 配下の Add administrator フォーム。必須の given name・family name・メールアドレスの入力欄、任意の歓迎メッセージ、Add ボタンを備える。", "caption": "Add administrator — 組織レベルの管理者を作成する" }
+      ]
     },
     "applications": {
-      "title": "アプリケーション / デプロイを作成する",
-      "blurb": "使うサービスを起動します。",
-      "body": "アプリケーション（デプロイとも呼びます）は、組織に接続された実際に動作するサービス（ウォレットなど）です。作成することで設定が有効になり、他のツールが接続するための情報が得られます。",
-      "steps": ["アプリケーションを開く", "デプロイを作成する", "接続情報を保存する"]
+      "title": "ウォレットをデプロイする",
+      "blurb": "組織のクレデンシャルハブを立ち上げます。",
+      "body": "アプリケーション（デプロイ）は、組織に接続された動作中のサービスです。最も簡単な方法は、Deploy Wallet による自動ウォレットデプロイです。このデプロイが組織の検証可能なクレデンシャルのハブとなり、ここでクレデンシャルの発行・検証や、シンプルな検証のための SVX Verify の構成を行います。",
+      "steps": [
+        { "type": "step", "text": "組織の「アプリケーション」を開き、Deploy Wallet をクリックします。" },
+        { "type": "figure", "src": "portal/applications-deploy-button.png", "alt": "アプリケーションの一覧が空の状態の、組織の Devtools → Applications 画面。Deploy Wallet ボタンと Create application ボタンが表示されている。", "caption": "Applications — Deploy Wallet をクリックする" },
+        { "type": "step", "text": "View Wallet ボタンが表示され、デプロイのリクエストが成功したことを知らせるトーストが表示されます。" },
+        { "type": "figure", "src": "portal/applications-deployment-success.png", "alt": "「Successfully created a new deployment」のトーストが表示されたアプリケーション画面。Deploy Wallet の代わりに View Wallet ボタンが表示されている。", "caption": "デプロイをリクエスト — 成功トーストと View Wallet ボタン" },
+        { "type": "step", "text": "View Wallet をクリックすると、デプロイのステータスと情報を確認できます。" },
+        { "type": "note", "text": "通常は 5〜10 分ほどで完了します。" },
+        { "type": "figure", "src": "portal/applications-view-offline.png", "alt": "OFFLINE のステータスバッジと、ウォレット URL・プラットフォーム URL・テナント ID・組織 ID・クライアント認証情報などのデプロイ情報を表示した View application の詳細ページ。", "caption": "View Wallet — デプロイ準備中は OFFLINE" },
+        { "type": "step", "text": "ステータスが online になるまで、ページを更新しながら待ちます。online になればウォレットの準備完了で、デプロイ情報にウォレット URL が表示されます。" },
+        { "type": "figure", "src": "portal/applications-view-online.png", "alt": "ONLINE のステータスバッジを表示した View application の詳細ページ。ウォレットデプロイの準備が完了し、ウォレット URL とデプロイ情報が表示されている。", "caption": "View Wallet — ONLINE になりウォレットの準備完了" }
+      ]
     },
     "api-keys": {
       "title": "API キーを作成する",
@@ -124,10 +156,12 @@
   "terms": {
     "portal": { "label": "ポータル", "def": "Meeco ポータル — テナント・組織・アプリケーションを設定・管理するウェブサイト。" },
     "tenant": { "label": "テナント", "def": "データや設定を保管する、Meeco プラットフォーム上のあなた専用の区切られた領域。" },
+    "tenant-admin": { "label": "テナント管理者", "def": "ポータルでテナントを管理する人 — テナント設定の管理や組織の作成を行う。テナント管理者は他のテナント管理者を招待できる。" },
     "organisation": { "label": "組織", "def": "テナント内でクレデンシャルを発行・検証する会社やチームの主体。" },
     "application": { "label": "アプリケーション", "def": "組織に接続された動作中のサービス（ウォレットなど）。デプロイとも呼ばれる。" },
     "deployment": { "label": "デプロイ", "def": "起動して接続済みの、アプリケーションの稼働インスタンス。" },
     "wallet": { "label": "ウォレット", "def": "SVX ウォレット — クレデンシャルの発行・保管・検証を行う統合サービス。" },
+    "wallet-url": { "label": "ウォレット URL", "def": "デプロイが完了してオンラインになると、デプロイ済みウォレットが利用可能になるウェブアドレス。" },
     "api-key": { "label": "API キー", "def": "ソフトウェアがウォレットに安全に接続するための秘密の鍵。" },
     "admin-account": { "label": "管理者アカウント", "def": "ウォレットを管理することを許可された人のログイン。" },
     "kms": { "label": "KMS", "def": "Key Management Service — 暗号化キーを生成・管理する安全な保管庫。" },

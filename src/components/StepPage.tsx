@@ -1,11 +1,13 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import { Check, CircleDashed, Info } from "lucide-react"
 import { useCurrentStep } from "@/hooks/useCurrentStep"
-import { GROUPS } from "@/content/steps"
+import { GROUPS, nextStep } from "@/content/steps"
 import { useProgress } from "@/lib/progress"
 import { Term } from "@/components/Term"
 import { Stepper } from "@/components/Stepper"
+import type { StepItem } from "@/content/blocks"
 import { PrevNext } from "@/components/PrevNext"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -20,20 +22,42 @@ import { cn } from "@/lib/utils"
 export function StepPage() {
   const step = useCurrentStep()
   const { t } = useTranslation()
-  const { isComplete, toggle, count, total } = useProgress()
+  const navigate = useNavigate()
+  const { isComplete, markComplete, toggle, count, total } = useProgress()
+  // Brief success animation that plays before advancing to the next lesson.
+  const [celebrating, setCelebrating] = useState(false)
 
-  // Scroll to top when navigating between lessons.
+  // Scroll to top and clear any in-flight celebration when the lesson changes.
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" })
+    setCelebrating(false)
   }, [step?.id])
 
   if (!step) return null
 
+  const next = nextStep(step.id)
+  const done = isComplete(step.id)
+  // If already done, clicking simply un-completes the lesson (no redirect).
+  // Otherwise: mark done, play the animation, then move to the next lesson
+  // (or back to the start once the path is finished).
+  const handleMarkDone = () => {
+    if (celebrating) return
+    if (done) {
+      toggle(step.id)
+      return
+    }
+    markComplete(step.id)
+    setCelebrating(true)
+    window.setTimeout(() => navigate(next ? next.route : "/"), 650)
+  }
+
   const group = GROUPS.find((g) => g.id === step.group)!
   const GroupIcon = group.icon
   const StepIcon = step.icon
-  const done = isComplete(step.id)
-  const subSteps = t(`steps.${step.id}.steps`, { returnObjects: true }) as string[]
+  const subSteps = t(`steps.${step.id}.steps`, { returnObjects: true }) as StepItem[]
+  // Steps with interlaced blocks (figures, links, notes) are real content,
+  // so the "draft placeholder" banner is suppressed for them.
+  const hasRichSteps = Array.isArray(subSteps) && subSteps.some((s) => typeof s === "object")
 
   return (
     <article className="mx-auto w-full max-w-2xl animate-in fade-in slide-in-from-bottom-2 duration-300">
@@ -55,10 +79,12 @@ export function StepPage() {
         {t(`steps.${step.id}.body`)}
       </p>
 
-      <p className="mt-4 flex items-center gap-2 rounded-md border border-dashed bg-muted/40 px-3 py-2 text-xs text-muted-foreground">
-        <Info className="size-3.5 shrink-0" />
-        {t("ui.draftNotice")}
-      </p>
+      {!hasRichSteps && (
+        <p className="mt-4 flex items-center gap-2 rounded-md border border-dashed bg-muted/40 px-3 py-2 text-xs text-muted-foreground">
+          <Info className="size-3.5 shrink-0" />
+          {t("ui.draftNotice")}
+        </p>
+      )}
 
       <section className="mt-8">
         <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
@@ -83,12 +109,23 @@ export function StepPage() {
       <Separator className="my-8" />
 
       <Button
-        onClick={() => toggle(step.id)}
-        variant={done ? "secondary" : "default"}
-        className={cn("gap-2 transition-all", done && "text-primary")}
+        onClick={handleMarkDone}
+        disabled={celebrating}
+        variant={done && !celebrating ? "secondary" : "default"}
+        className={cn(
+          "gap-2 transition-transform duration-300",
+          celebrating && "scale-105 bg-primary text-primary-foreground",
+          done && !celebrating && "text-primary",
+        )}
       >
-        {done ? <Check className="size-4" /> : <CircleDashed className="size-4" />}
-        {done ? t("ui.markedComplete") : t("ui.markComplete")}
+        {celebrating || done ? (
+          <Check
+            className={cn("size-4", celebrating && "animate-in zoom-in-50 spin-in-45 duration-300")}
+          />
+        ) : (
+          <CircleDashed className="size-4" />
+        )}
+        {celebrating ? t("ui.lessonDone") : done ? t("ui.markedComplete") : t("ui.markComplete")}
       </Button>
       <span className="ml-3 text-sm text-muted-foreground">
         {t("ui.lessonsComplete", { done: count, total })}

@@ -14,6 +14,7 @@
     "stepN": "Step {{n}} of {{total}}",
     "markComplete": "Mark as done",
     "markedComplete": "Done",
+    "lessonDone": "Nice work!",
     "openLesson": "Open lesson",
     "whatIsThis": "What is this?",
     "recommendedNext": "Recommended next",
@@ -32,6 +33,10 @@
     "searchPlaceholder": "Search steps and terms…",
     "stepsHeading": "Steps to follow",
     "keyTerms": "Key terms",
+    "figureLabel": "Figure",
+    "imagePlaceholder": "Screenshot coming soon",
+    "enlarge": "Enlarge",
+    "enlargeImage": "Enlarge image: {{caption}}",
     "draftNotice": "Draft content — placeholder copy to be replaced with your final text.",
     "allSteps": "All steps",
     "reset": "Reset progress",
@@ -50,21 +55,48 @@
   "steps": {
     "tenant": {
       "title": "Create a Tenant",
-      "blurb": "Your own private space on the platform.",
-      "body": "A tenant is your own private, walled-off area on the Meeco platform. Think of it like renting your own apartment in a big building: everything inside — your credentials, settings and data — is yours and kept separate from everyone else. This is the very first thing you create.",
-      "steps": ["Sign in to the Meeco Portal", "Create a new tenant", "Give your tenant a name"]
+      "blurb": "Your own private admin space in the Portal.",
+      "body": "A tenant is your own private, walled-off area in the Meeco Portal. No credentials live here — it's purely for admin: managing your account and creating organisations. It's the very first thing you create.",
+      "steps": [
+        { "type": "step", "text": "Setting up for the first time? Use the signup link to create your tenant." },
+        { "type": "link", "url": "https://login-sandbox.securevalueexchange.com/signup", "label": "Sign up & create your tenant" },
+        { "type": "step", "text": "After that, sign in to the Portal dashboard to manage it." },
+        { "type": "link", "url": "https://portal-sandbox.securevalueexchange.com/dashboard", "label": "Open the Portal dashboard" },
+        { "type": "step", "text": "To set your tenant's name and logo, open the tenant logo menu → Manage Tenancy → Account Settings, then upload a logo and Save." },
+        { "type": "figure", "src": "portal/tenant-account-settings.png", "alt": "The Portal's Account Settings page under Manage Tenancy, showing the tenant name, the tenant ID, and a drag-and-drop area to upload the tenant logo, with Cancel and Save buttons.", "caption": "Account Settings — update your tenant's name and logo" },
+        { "type": "step", "text": "To invite another tenant admin, go to Manage Tenancy → Administrators → Add Administrator." },
+        { "type": "figure", "src": "portal/tenant-add-administrator.png", "alt": "The Add Administrator form under Manage Tenancy → Administrators, with fields for given name, family name, email address, and an optional welcome message, and an Add button.", "caption": "Add Administrator — invite another tenant admin" }
+      ]
     },
     "organisation": {
-      "title": "Add an Organisation",
-      "blurb": "The company or team that owns the setup.",
-      "body": "An organisation is the company or team identity that lives inside your tenant. It's the brand that will issue and verify credentials — the 'who' behind everything you do here.",
-      "steps": ["Open your tenant", "Add an organisation", "Fill in its name and details"]
+      "title": "Create an Organisation",
+      "blurb": "The team identity that controls wallet access.",
+      "body": "An organisation lives inside your tenant. Like the tenant, no credentials live here — but it controls who can access the wallets you deploy from within the tenant.",
+      "steps": [
+        { "type": "step", "text": "In the Portal sidebar, go to Organizations." },
+        { "type": "step", "text": "Click Add Organization, give it a name, an optional URL and a logo, then click Create." },
+        { "type": "figure", "src": "portal/organisation-create.png", "alt": "The Add Organization form in the Portal, with fields for the organisation name and URL, a drag-and-drop area to upload a logo, and a Create button.", "caption": "Add Organization — name, URL and logo" },
+        { "type": "step", "text": "Your new organisation appears in the Organizations list. Click its logo in the list to launch it." },
+        { "type": "figure", "src": "portal/organisation-launch.png", "alt": "The Portal's Organizations list showing an organisation row with its logo, name and date created; clicking the logo launches the organisation.", "caption": "Organizations list — click an organisation's logo to launch it" },
+        { "type": "step", "text": "Inside the organisation, go to Manage Organisation → Administrators → Add administrator to create organisation-level admins." },
+        { "type": "figure", "src": "portal/organisation-add-administrator.png", "alt": "The Add administrator form under Manage Organisation → Administrators for an organisation, with required given name, family name and email address fields, an optional welcome message, and an Add button.", "caption": "Add administrator — create organisation-level admins" }
+      ]
     },
     "applications": {
-      "title": "Create an Application / Deployment",
-      "blurb": "Switch on the services you'll use.",
-      "body": "Applications (also called deployments) are the actual running services connected to your organisation — like your Wallet. Creating one switches your setup on and gives you the details other tools use to connect.",
-      "steps": ["Go to Applications", "Create a deployment", "Save the connection details"]
+      "title": "Deploy a Wallet",
+      "blurb": "Stand up your organisation's credential hub.",
+      "body": "An application (or deployment) is a running service connected to your organisation. The simplest way to get one is an automatic wallet deployment via Deploy Wallet. This deployment is your organisation's Verified Credential hub — where you issue credentials, verify them, and configure SVX Verify for simple verification.",
+      "steps": [
+        { "type": "step", "text": "Open your organisation's Applications and click Deploy Wallet." },
+        { "type": "figure", "src": "portal/applications-deploy-button.png", "alt": "The Devtools → Applications screen for an organisation with an empty applications list, showing the Deploy Wallet and Create application buttons.", "caption": "Applications — click Deploy Wallet" },
+        { "type": "step", "text": "A View Wallet button appears, and a toast confirms your deployment request was successful." },
+        { "type": "figure", "src": "portal/applications-deployment-success.png", "alt": "The Applications screen showing a 'Successfully created a new deployment' toast, with a View Wallet button now shown in place of Deploy Wallet.", "caption": "Deployment requested — success toast and the View Wallet button" },
+        { "type": "step", "text": "Click View Wallet to see the deployment status and information." },
+        { "type": "note", "text": "This usually only takes about 5–10 minutes." },
+        { "type": "figure", "src": "portal/applications-view-offline.png", "alt": "The View application detail page showing an OFFLINE status badge alongside the deployment information — the Wallet URL, platform URL, tenant ID, organization ID and client credentials.", "caption": "View Wallet — status OFFLINE while the deployment spins up" },
+        { "type": "step", "text": "Wait for the status to become online, refreshing the page to update it. Once online, your wallet is ready and its Wallet URL appears in the deployment information." },
+        { "type": "figure", "src": "portal/applications-view-online.png", "alt": "The View application detail page showing an ONLINE status badge, meaning the wallet deployment is ready, with its Wallet URL and deployment information.", "caption": "View Wallet — status ONLINE and the wallet is ready" }
+      ]
     },
     "api-keys": {
       "title": "Create API Keys",
@@ -124,10 +156,12 @@
   "terms": {
     "portal": { "label": "Portal", "def": "The Meeco Portal — the website where you set up and manage your tenant, organisation and applications." },
     "tenant": { "label": "Tenant", "def": "Your own private, isolated space on the Meeco platform where your data and settings live." },
+    "tenant-admin": { "label": "Tenant admin", "def": "A person who administers a tenant in the Portal — managing tenant settings and creating organisations. Tenant admins can invite other tenant admins." },
     "organisation": { "label": "Organisation", "def": "The company or team identity that issues and verifies credentials inside your tenant." },
     "application": { "label": "Application", "def": "A running service (like the Wallet) connected to your organisation. Sometimes called a deployment." },
     "deployment": { "label": "Deployment", "def": "A live instance of an application that you've switched on and connected." },
     "wallet": { "label": "Wallet", "def": "The SVX Wallet — one unified service that issues, holds and verifies credentials." },
+    "wallet-url": { "label": "Wallet URL", "def": "The web address where your deployed Wallet becomes available once its deployment is online." },
     "api-key": { "label": "API key", "def": "A secret key that lets your software connect to the Wallet securely." },
     "admin-account": { "label": "Admin account", "def": "A login for a person who is allowed to manage the Wallet." },
     "kms": { "label": "KMS", "def": "Key Management Service — the secure vault that creates and looks after your encryption keys." },

@@ -6,10 +6,12 @@
 export const TERM_IDS = [
   "portal",
   "tenant",
+  "tenant-admin",
   "organisation",
   "application",
   "deployment",
   "wallet",
+  "wallet-url",
   "api-key",
   "admin-account",
   "kms",

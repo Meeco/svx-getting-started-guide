@@ -51,9 +51,9 @@ export const GROUPS: StepGroup[] = [
 
 export const STEPS: Step[] = [
   // 1. Portal — do this first
-  { id: "tenant", route: "/portal/tenant", group: "portal", order: 1, icon: Building2, terms: ["tenant", "portal"] },
-  { id: "organisation", route: "/portal/organisation", group: "portal", order: 2, icon: Users, terms: ["organisation", "tenant"] },
-  { id: "applications", route: "/portal/applications", group: "portal", order: 3, icon: Boxes, terms: ["application", "deployment"] },
+  { id: "tenant", route: "/portal/tenant", group: "portal", order: 1, icon: Building2, terms: ["tenant", "portal", "tenant-admin"] },
+  { id: "organisation", route: "/portal/organisation", group: "portal", order: 2, icon: Users, terms: ["organisation", "tenant", "wallet"] },
+  { id: "applications", route: "/portal/applications", group: "portal", order: 3, icon: Boxes, terms: ["application", "deployment", "wallet", "wallet-url", "svx-verify"] },
 
   // 2. Wallet setup — stand up the wallet before using it
   { id: "api-keys", route: "/wallet/admin/api-keys", group: "wallet-setup", order: 4, icon: KeyRound, terms: ["api-key", "wallet"] },
