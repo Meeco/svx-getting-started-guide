@@ -179,6 +179,7 @@
         { "type": "step", "text": "Credentials are issued by your own API-connected systems, which create the credential from a template and hand it to the holder, so it lands in their wallet." },
         { "type": "note", "text": "Setting up an API-connected system to issue credentials is out of scope of this guide." },
         { "type": "step", "text": "Click any credential to see its details and track its status, and revoke it if it should no longer be trusted." },
+        { "type": "note", "text": "By default, the issuing wallet shows the list of issued credentials but not the claims inside each one. To view the claims, go to Wallet → Wallet Settings → Issuer and turn on \"Persist issued credentials\"." },
         { "type": "figure", "src": "issue/issued-credentials-detail.png", "alt": "The Credential Details panel for an issued credential, showing its ID and format alongside the claims it contains — name, date of birth, document number and more.", "caption": "A single credential's details" }
       ]
     },
