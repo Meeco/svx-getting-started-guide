@@ -28,7 +28,7 @@ export function Term({ term, children, className }: TermProps) {
         <button
           type="button"
           className={cn(
-            "cursor-help font-medium text-foreground underline decoration-primary/50 decoration-dotted underline-offset-4 transition-colors hover:decoration-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm",
+            "cursor-help font-medium text-foreground underline decoration-brand/50 decoration-dotted underline-offset-4 transition-colors hover:decoration-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm",
             className,
           )}
         >

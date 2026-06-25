@@ -62,14 +62,14 @@ export function StepPage() {
   return (
     <article className="mx-auto w-full max-w-2xl animate-in fade-in slide-in-from-bottom-2 duration-300">
       <div className="flex items-center gap-2 text-sm text-muted-foreground">
-        <GroupIcon className="size-4 text-primary" />
+        <GroupIcon className="size-4 text-brand" />
         <span>{t(`groups.${group.id}.title`)}</span>
         <span aria-hidden>·</span>
         <span>{t("ui.stepN", { n: step.order, total })}</span>
       </div>
 
       <h1 className="mt-3 flex items-center gap-3 text-3xl font-bold tracking-tight text-foreground">
-        <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+        <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
           <StepIcon className="size-6" />
         </span>
         {t(`steps.${step.id}.title`)}
@@ -114,8 +114,8 @@ export function StepPage() {
         variant={done && !celebrating ? "secondary" : "default"}
         className={cn(
           "gap-2 transition-transform duration-300",
-          celebrating && "scale-105 bg-primary text-primary-foreground",
-          done && !celebrating && "text-primary",
+          celebrating && "scale-105 bg-brand text-brand-foreground",
+          done && !celebrating && "text-brand",
         )}
       >
         {celebrating || done ? (

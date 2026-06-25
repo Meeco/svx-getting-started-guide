@@ -28,7 +28,7 @@ export function Stepper({ stepKeys }: { stepKeys: StepItem[] }) {
             return (
               <div key={i} className={cn("flex items-start gap-3", gap)}>
                 <span
-                  className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary"
+                  className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-brand/10 text-xs font-semibold text-brand"
                   aria-hidden
                 >
                   {stepNumber}

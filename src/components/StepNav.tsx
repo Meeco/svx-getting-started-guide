@@ -39,7 +39,7 @@ export function StepNav({ onNavigate, className }: StepNavProps) {
                         cn(
                           "group flex items-center gap-2.5 rounded-md px-2 py-1.5 text-sm transition-colors",
                           isActive
-                            ? "bg-primary/10 font-medium text-primary"
+                            ? "bg-brand/10 font-medium text-brand"
                             : "text-foreground/80 hover:bg-accent hover:text-foreground",
                         )
                       }
@@ -48,9 +48,9 @@ export function StepNav({ onNavigate, className }: StepNavProps) {
                         className={cn(
                           "flex size-5 shrink-0 items-center justify-center rounded-full border text-[10px] font-semibold transition-colors",
                           done
-                            ? "border-primary bg-primary text-primary-foreground"
+                            ? "border-brand bg-brand text-brand-foreground"
                             : isNext
-                              ? "border-primary text-primary"
+                              ? "border-brand text-brand"
                               : "border-border text-muted-foreground",
                         )}
                       >

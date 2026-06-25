@@ -37,7 +37,7 @@ export function MobileNav() {
             onClick={() => setOpen(false)}
             className={({ isActive }) =>
               `flex items-center gap-2.5 rounded-md border-t px-2 pt-4 text-sm transition-colors ${
-                isActive ? "font-medium text-primary" : "text-foreground/80 hover:text-foreground"
+                isActive ? "font-medium text-brand" : "text-foreground/80 hover:text-foreground"
               }`
             }
           >

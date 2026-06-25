@@ -19,9 +19,9 @@ export function GroupCards({ className }: { className?: string }) {
         const done = steps.filter((s) => isComplete(s.id)).length
         return (
           <Link key={group.id} to={steps[0].route}>
-            <Card className="group h-full p-5 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
+            <Card className="group h-full p-5 transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-md">
               <div className="flex items-center justify-between">
-                <span className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <span className="flex size-10 items-center justify-center rounded-lg bg-brand/10 text-brand">
                   <GroupIcon className="size-5" />
                 </span>
                 <span className="text-xs font-medium text-muted-foreground">

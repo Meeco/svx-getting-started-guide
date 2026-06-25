@@ -33,7 +33,7 @@ export function Layout({ children }: { children: ReactNode }) {
             to="/glossary"
             className={({ isActive }) =>
               `mt-6 flex items-center gap-2.5 rounded-md border-t px-2 pt-4 text-sm transition-colors ${
-                isActive ? "font-medium text-primary" : "text-foreground/80 hover:text-foreground"
+                isActive ? "font-medium text-brand" : "text-foreground/80 hover:text-foreground"
               }`
             }
           >
@@ -51,8 +51,8 @@ export function Home() {
   const { t } = useTranslation()
   return (
     <div className="mx-auto max-w-3xl">
-      <div className="rounded-2xl border bg-gradient-to-br from-primary/10 via-background to-background p-8 sm:p-12">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+      <div className="rounded-2xl border bg-gradient-to-br from-brand/10 via-background to-background p-8 sm:p-12">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/10 px-3 py-1 text-xs font-medium text-brand">
           <Sparkles className="size-3.5" />
           {t("ui.gettingStarted")}
         </span>

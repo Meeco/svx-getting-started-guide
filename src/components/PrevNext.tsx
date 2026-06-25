@@ -34,7 +34,7 @@ function PagerLink({
     <Link
       to={step.route}
       className={cn(
-        "group flex flex-col gap-1 rounded-lg border p-4 transition-all hover:border-primary/50 hover:bg-accent",
+        "group flex flex-col gap-1 rounded-lg border p-4 transition-all hover:border-brand/50 hover:bg-accent",
         direction === "next" && "sm:text-right sm:items-end",
       )}
     >
